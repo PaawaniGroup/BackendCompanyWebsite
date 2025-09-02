@@ -66,7 +66,7 @@ router.post("/send-career-mail", upload.single("resume"), async (req, res) => {
 
   try {
     const info = await transporter.sendMail(mailOptions);
-    console.log("Email sent:", req.body);
+    console.log("Email sent:", info.response);
     res.status(200).json({ message: "Email sent successfully!" });
   } catch (error) {
     console.error("Error sending mail:", error);
